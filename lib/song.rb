@@ -1,18 +1,25 @@
 class Song
+    @@count = 0
+  
     attr_reader :name, :artist, :genre
-    
+  
     def initialize(name, artist, genre)
       @name = name
       @artist = artist
       @genre = genre
+      @@count += 1
+    end
+  
+    def self.count
+      @@count
     end
   end
   
-  # Creating a new instance of the Song class
-  hit_me = Song.new('Hit Me Baby One More Time', 'Britney Spears', 'Pop')
+  # Creating new instances of the Song class
+  song1 = Song.new('Song 1', 'Artist 1', 'Genre 1')
+  song2 = Song.new('Song 2', 'Artist 2', 'Genre 2')
+  song3 = Song.new('Song 3', 'Artist 3', 'Genre 3')
   
-  # Accessing the attributes of the song
-  puts hit_me.name   # Output: Hit Me Baby One More Time
-  puts hit_me.artist # Output: Britney Spears
-  puts hit_me.genre  # Output: Pop
+  # Accessing the class variable
+  puts Song.count # Output: 3
   
